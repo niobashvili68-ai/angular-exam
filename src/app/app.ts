@@ -4,7 +4,7 @@ import { CartService } from './features/cart/services/cart.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink  , RouterLinkActive],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
