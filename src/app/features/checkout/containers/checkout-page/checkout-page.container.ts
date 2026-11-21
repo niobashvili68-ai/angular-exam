@@ -9,7 +9,7 @@ import { CheckoutService } from '../../services/checkout.service';
 
 @Component({
   selector: 'app-checkout-page',
-  imports: [DatePipe, RouterLink, OrderSummaryComponent],
+  imports: [ DatePipe, RouterLink, OrderSummaryComponent, ReactiveFormsModule],
   templateUrl: './checkout-page.container.html',
   styleUrl: './checkout-page.container.css',
 })
@@ -22,10 +22,10 @@ export class CheckoutPageContainer {
 
   readonly form = this.fb.group({
     fullName: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', Validators.required],
-    address: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    address: ['', [Validators.required]],
     paymentMethod: ['card' as PaymentMethod],
-    agree: [false, Validators.required],
+    agree: [false, Validators.requiredTrue],
   });
 
   submit(): void {
